@@ -26,6 +26,8 @@ public class MyLinkedList {
     node.next = newNode;
   }
 
-
-
+  @Override
+  public String toString() {
+    return "data=" + data + "  next=" + (next == null ? "null" : next.data);
+  }
 }
