@@ -1,4 +1,4 @@
-import utils.Printer;
+import utils.Utils;
 
 /**
  * Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a
@@ -14,10 +14,10 @@ public class OnePoint6 {
     // final int[][] matrix = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
     final int[][] matrix = new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12},
         {13, 14, 15, 16}};
-    Printer.printMatrix(matrix);
+    Utils.printMatrix(matrix);
     rotateMatrix(matrix);
     System.out.println();
-    Printer.printMatrix(matrix);
+    Utils.printMatrix(matrix);
   }
 
   static void rotateMatrix(int[][] matrix) {

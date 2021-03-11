@@ -9,7 +9,7 @@ import java.util.Arrays;
  *
  * @author <a href="https://github.com/JulianBroudy"><b>Julian Broudy</b></a>
  */
-public class Printer {
+public class Utils {
 
   public static <T> void  printMatrix(T[][] matrix) {
     for (T[] row : matrix) {
@@ -21,6 +21,27 @@ public class Printer {
     for (int[] row : matrix) {
       System.out.println(Arrays.toString(row));
     }
+  }
+
+  // Taken from Geeks4Geeks
+  public static int isSubstring(String string, String substring)
+  {
+
+    int t = 0;
+    int len = string.length();
+    int i;
+
+    // Iterate from 0 to len - 1
+    for (i = 0; i < len; i++) {
+      if (t == substring.length())
+        break;
+      if (string.charAt(i) == substring.charAt(t))
+        t++;
+      else
+        t = 0;
+    }
+
+    return t < substring.length() ? -1 : i - t;
   }
 
 }

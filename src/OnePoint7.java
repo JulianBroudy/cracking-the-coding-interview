@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import utils.Printer;
+import utils.Utils;
 
 /**
  * Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
@@ -14,10 +14,10 @@ public class OnePoint7 {
 
   public static void main(String[] args) {
     final int[][] matrix = new int[][]{{0, 2, 3}, {4, 5, 6}, {7, 8, 9}, {1, 1, 1}};
-    Printer.printMatrix(matrix);
+    Utils.printMatrix(matrix);
     processMatrix(matrix);
     System.out.println();
-    Printer.printMatrix(matrix);
+    Utils.printMatrix(matrix);
   }
 
   private static void processMatrix(int[][] matrix) {
