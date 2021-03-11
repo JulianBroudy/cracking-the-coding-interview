@@ -23,6 +23,18 @@ public class Utils {
     }
   }
 
+  public static void printList(MyLinkedList head){
+    if (head == null) {
+      System.out.println("Empty");
+    }
+    MyLinkedList node = head;
+    while (node != null) {
+      System.out.print(node.data);
+      node = node.next;
+    }
+    System.out.println();
+  }
+
   // Taken from Geeks4Geeks
   public static int isSubstring(String string, String substring)
   {
