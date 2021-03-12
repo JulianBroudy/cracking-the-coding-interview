@@ -25,6 +25,34 @@ public class TwoPoint5 {
 
     MyLinkedList loopStartNode = findLoopStart(circular);
     System.out.println(loopStartNode);
+    loopStartNode = findLoopStart2(circular);
+    System.out.println(loopStartNode);
+
+  }
+
+  // Without extra space
+  // Assuming a loop exists
+  private static MyLinkedList findLoopStart2(MyLinkedList circular) {
+
+    if (circular == null) {
+      return null;
+    }
+
+    MyLinkedList firstRunner = circular;
+    MyLinkedList secondRunner = circular;
+
+    do {
+      firstRunner = firstRunner.next;
+      secondRunner = secondRunner.next.next;
+    } while (firstRunner != secondRunner);
+
+    firstRunner = circular;
+    while (firstRunner != secondRunner) {
+      firstRunner = firstRunner.next;
+      secondRunner = secondRunner.next;
+    }
+
+    return firstRunner;
   }
 
   // With extra space
@@ -32,7 +60,7 @@ public class TwoPoint5 {
     final HashSet<MyLinkedList> set = new HashSet<>();
     MyLinkedList runner = circular;
     while (runner != null) {
-      if(set.contains(runner)){
+      if (set.contains(runner)) {
         return runner;
       }
       set.add(runner);
