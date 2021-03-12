@@ -1,7 +1,7 @@
 package utils;
 
 /**
- * TODO provide a summary to utils.MyLinkedList class!!!!!
+ * LinkedList class.
  * <p>
  * Created on the 11th of March, 2021.
  *
