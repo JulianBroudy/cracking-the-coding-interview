@@ -7,44 +7,62 @@ package utils;
  *
  * @author <a href="https://github.com/JulianBroudy"><b>Julian Broudy</b></a>
  */
-public class MyStack {
+public class MyStack<T> extends Node<T> {
 
-  public Node top;
+  private final int maxSize;
+  public Node<T> top;
   private int size;
 
   public MyStack() {
-    this.size = 0;
+    this(Integer.MAX_VALUE);
   }
 
-  public Node pop() {
+  public MyStack(int size) {
+    this.size = 0;
+    this.maxSize = size;
+  }
+
+  public Node<T> pop() {
     if (top != null) {
-      Node toPop = top;
+      Node<T> toPop = top;
       top = top.next;
+      size--;
       return toPop;
     }
     return null;
   }
 
-  public void push(Node node) {
+  public void push(Node<T> node) {
+    if (isFull()) {
+      throw new OutOfMemoryError("Stack is full");
+    }
     node.next = top;
     top = node;
+    size++;
   }
 
-  public void push(Object data) {
-    final Node toPush = new Node(data);
-    toPush.next = top;
-    top = toPush;
+  public Node<T> peek() {
+    return top;
   }
 
-  static class Node {
+  public void push(T data) {
+    push(new Node<>(data));
+  }
 
-    public Node next;
-    public Object data;
+  public boolean isEmpty() {
+    return size == 0;
+  }
 
-    public Node(Object data) {
-      this.data = data;
-      this.next = null;
+  public boolean isFull() {
+    return size == maxSize;
+  }
+
+  public void printStack() {
+    Node<T> node = top;
+    while (node != null) {
+      System.out.print(node + ", ");
+      node = node.next;
     }
-
   }
+
 }
