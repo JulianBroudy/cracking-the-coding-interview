@@ -28,6 +28,7 @@ public class ThreePoint3 {
     setOfStacks.printStacks();
     System.out.println("popped");
     setOfStacks.pop();
+ 
     setOfStacks.pop();
     setOfStacks.printStacks();
   }
@@ -46,9 +47,6 @@ public class ThreePoint3 {
     }
 
     public Node<T> pop() {
-      if (currentStack == null) {
-        throw new IndexOutOfBoundsException();
-      }
       Node<T> result = currentStack.pop();
       if (currentStack.isEmpty() && stacksList.size() != 1) {
         stacksList.removeLast();
